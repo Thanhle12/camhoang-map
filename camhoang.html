@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <script  src="js/ol.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/ol.js.map"></script>
+    <script src="js/search.js"></script>
+    <link rel="icon" type="png" href="assets/google-maps.png" sizes="64x64">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ol.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Bản đồ Cẩm Hoàng</title>
+</head>
+<body>
+    <div id="map" class="map"></div>
+    <div id="img">
+        <img src="http://localhost:1222/geoserver/camhoang/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&LAYER=camhoang:camhoangdc"/>
+        <br>
+        <img src="http://localhost:1222/geoserver/camhoang/wms?Request=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&LAYER=camhoang:camhoanggt"/>
+        <br>
+        <img src="http://localhost:1222/geoserver/camhoang/wms?Request=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&LAYER=camhoang:camhoangub"/>
+    </div>
+    <div id="checkbox">
+        <input type="checkbox" id="checkcamhoangdc" checked>
+        <label for="checkbox">Hiện trạng dân cư Cẩm Hoàng</label>
+        <br>
+        <input type="checkbox" id="checkcamhoanggt" checked>
+        <label for="checkbox">Đường giao thông Cẩm Hoàng</label>
+        <br>
+        <input type="checkbox" id="checkcamhoangub" checked>
+        <label for="checkbox">Cơ sở hạ tầng Cẩm Hoàng</label>
+    </div>
+    <div id="info"></div>
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+    <script src="js/search.js"></script>
+    <form>
+        <input type="text" size="30" onkeyup="showResult(this.value)" placeholder="tim kiem">
+        <div id="livesearch"></div>
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
